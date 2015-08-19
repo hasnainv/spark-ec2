@@ -5,7 +5,6 @@ pushd /root > /dev/null
 if [ -d "persistent-hdfs" ]
 then
   echo "Persistent HDFS seems to be installed. Exiting."
-  return 0
 else
     case "$HADOOP_MAJOR_VERSION" in
       1)
