@@ -83,7 +83,7 @@ fi
 
 # Clear conf/slaves of all modules
 for module in $MODULES; do
-  if [-f $module/conf/slaves ]; then
+  if [ -f $module/conf/slaves ]; then
     cat > $module/conf/slaves
   fi
 done
