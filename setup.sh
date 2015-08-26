@@ -81,6 +81,14 @@ if [[ ! $MODULES =~ *scala* ]]; then
   MODULES=$(printf "%s\n%s\n" "scala" $MODULES)
 fi
 
+# Clear conf/slaves of all modules
+for module in $MODULES; do
+  if [-f $module/conf/slaves ]; then
+    cat > $module/conf/slaves
+  fi
+done
+
+
 # Install / Init module
 for module in $MODULES; do
   echo "Initializing $module"
