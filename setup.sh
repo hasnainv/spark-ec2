@@ -78,16 +78,15 @@ echo_time_diff "setup-slave" "$setup_slave_start_time" "$setup_slave_end_time"
 # Always include 'scala' module if it's not defined as a work around
 # for older versions of the scripts.
 if [[ ! $MODULES =~ *scala* ]]; then
-  MODULES=$(printf "%s\n%s\n" "scala" $MODULES)
+  MODULES=$(printf "%s\n%s\n%s\n" "scala" "mapreduce" $MODULES)
 fi
 
 # Clear conf/slaves of all modules
 for module in $MODULES; do
-  if [ -f $module/conf/slaves ]; then
-    cat > $module/conf/slaves
+  if [ -f /root/$module/conf/slaves ]; then
+    cat "" > /root/$module/conf/slaves
   fi
 done
-
 
 # Install / Init module
 for module in $MODULES; do
